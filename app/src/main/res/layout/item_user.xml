@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/photoImageView"
@@ -13,18 +15,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_user_avatar"
+        android:src="@drawable/ic_user_avatar"
         />
 
     <TextView
         android:id="@+id/userNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:ellipsize="end"
         android:lines="1"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/moreImageViewButton"
+        app:layout_constraintEnd_toStartOf="@+id/deleteImageViewButton"
         app:layout_constraintStart_toEndOf="@+id/photoImageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="John Smith" />
@@ -37,26 +40,21 @@
         android:lines="1"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/moreImageViewButton"
+        app:layout_constraintEnd_toStartOf="@+id/deleteImageViewButton"
         app:layout_constraintStart_toEndOf="@+id/photoImageView"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
         tools:text="Google Inc." />
 
     <ImageView
-        android:id="@+id/moreImageViewButton"
+        android:id="@+id/deleteImageViewButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:padding="6dp"
-        android:src="@drawable/ic_more"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/user_delete"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        app:barrierDirection="bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="photoImageView, userCompanyTextView"/>
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

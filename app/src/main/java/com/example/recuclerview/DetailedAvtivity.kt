@@ -13,10 +13,12 @@ class DetailedAvtivity : AppCompatActivity() {
         if (user!=null){
             val nameTV:TextView=findViewById(R.id.nameTextView)
             val departmentTV:TextView=findViewById(R.id.departmentTextView)
+            val emailTV:TextView=findViewById(R.id.emailTextView)
             val moreTV:TextView=findViewById(R.id.moreTextView)
 
             nameTV.text=user.name
             departmentTV.text=user.department
+            emailTV.text=user.email
             moreTV.text=user.more
         }
     }
