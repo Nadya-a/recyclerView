@@ -1,104 +1,104 @@
 [
   {
-    "id": 1.0,
+    "id": 1,
     "name": "Константинов Тарас",
     "department": "Google",
     "email": "taras@gmail.com",
     "more": "Любит кошек"
   },
   {
-    "id": 2.0,
+    "id": 2,
     "name": "Кристина Завойченко",
     "department": "Google",
     "email": "kristina@gmail.com",
     "more": "Ест младенцев на завтрак"
   },
   {
-    "id": 3.0,
+    "id": 3,
     "name": "Константинов Тарас",
     "department": "Google",
     "email": "taras@gmail.com",
     "more": "Три года работал в Африке"
   },
   {
-    "id": 4.0,
+    "id": 4,
     "name": "Максимова Кара",
     "department": "Google",
     "email": "kara@gmail.com",
     "more": "Громко ругается"
   },
   {
-    "id": 5.0,
+    "id": 5,
     "name": "Петухов Матвей",
     "department": "Google",
     "email": "matvey@gmail.com",
     "more": "Знает все треки Леди Гаги"
   },
   {
-    "id": 6.0,
+    "id": 6,
     "name": "Шарапов Климент",
     "department": "Google",
     "email": "klim@gmail.com",
     "more": "Ничего не говорит о себе"
   },
   {
-    "id": 7.0,
+    "id": 7,
     "name": "Крылова Зара",
     "department": "Google",
     "email": "zara@gmail.com",
     "more": "Любит солянку"
   },
   {
-    "id": 8.0,
+    "id": 8,
     "name": "Беляев Захар",
     "department": "Google",
     "email": "belyaev@gmail.com",
     "more": "Ходит в качалку"
   },
   {
-    "id": 9.0,
+    "id": 9,
     "name": "Кабанова Мирра",
     "department": "Google",
     "email": "mirra@gmail.com",
     "more": "Однажды пришла на работу без сумки"
   },
   {
-    "id": 10.0,
+    "id": 10,
     "name": "Прохоров Григорий",
     "department": "Google",
     "email": "grisha@gmail.com",
     "more": "Папа - местный батюшка"
   },
   {
-    "id": 11.0,
+    "id": 11,
     "name": "Богданова Юфеза",
     "department": "Google",
     "email": "bogdanova@gmail.com",
     "more": "Никто о ней ничего не знает"
   },
   {
-    "id": 12.0,
+    "id": 12,
     "name": "Беляев Захар",
     "department": "Google",
     "email": "belyaev@gmail.com",
     "more": "Ходит в качалку"
   },
   {
-    "id": 13.0,
+    "id": 13,
     "name": "Кабанова Мирра",
     "department": "Google",
     "email": "mirra@gmail.com",
     "more": "Однажды пришла на работу без сумки"
   },
   {
-    "id": 14.0,
+    "id": 14,
     "name": "Прохоров Григорий",
     "department": "Google",
     "email": "grisha@gmail.com",
     "more": "Папа - местный батюшка"
   },
   {
-    "id": 15.0,
+    "id": 15,
     "name": "Богданова Юфеза",
     "department": "Google",
     "email": "bogdanova@gmail.com",
