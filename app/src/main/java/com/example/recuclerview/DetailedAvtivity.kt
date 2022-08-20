@@ -3,6 +3,7 @@ package com.example.recuclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.recuclerview.model.Users
 
 class DetailedAvtivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

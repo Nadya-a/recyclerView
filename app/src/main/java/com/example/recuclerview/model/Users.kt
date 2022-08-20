@@ -1,17 +1,17 @@
-package com.example.recuclerview
+package com.example.recuclerview.model
 
 import android.os.Parcel
 import android.os.Parcelable
 
 data class Users(
-    val id: Int,
+    var id: Int,
     var name: String,
     val department: String,
     val email:String,
     val more:String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt(),
+        parcel.readInt()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,

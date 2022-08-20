@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recuclerview.model.Users
 
 /* interface UserActionListener {
     //fun onUserMove(user: Users, moveBy: Int)
@@ -54,12 +52,8 @@ class UsersAdapter (
         //if(holder.itemView.isSelected)
           //  holder.moreImage.visibility=View.GONE
 
-
-
        holder.moreImage.setOnClickListener { showPopupMenu(holder.moreImage, user)}
            //deleteClick?.invoke(user)
-
-
 
         holder.itemView.setOnClickListener { onItemClick?.invoke(user) }
 
@@ -91,14 +85,8 @@ class UsersAdapter (
 
     private fun showPopupMenu(view: View, user : Users) {
         val popupMenu = PopupMenu(view.context, view)
-        //val context = view.context
-        //val user = view.tag as Users
-       // val position = usersList.indexOfFirst { it.id == user.id }
 
         popupMenu.menu.add(0, ID_MORE, Menu.NONE, "More")
-       /* popupMenu.menu.add(0, ID_MOVE_DOWN, Menu.NONE, context.getString(R.string.move_down)).apply {
-            isEnabled = position < users.size - 1
-        } */
         popupMenu.menu.add(0, ID_REMOVE, Menu.NONE, "Remove")
 
         popupMenu.setOnMenuItemClickListener {
