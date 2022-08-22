@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         usersAdapter.usersList = it
     }
 
-    fun readJson(): MutableList<Users> {
+  /*  fun readJson(): MutableList<Users> {
         var usersList = mutableListOf<Users>()
         var json: String
         val inputStream: InputStream = assets.open("users.json")
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             inputStream.close()
         }
         return usersList
-    }
+    } */
 
     override fun onCreateOptionsMenu(menu: Menu?):Boolean{
         menuInflater.inflate(R.menu.item_menu, menu)
