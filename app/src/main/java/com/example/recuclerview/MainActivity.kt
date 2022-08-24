@@ -23,9 +23,7 @@ import java.io.InputStream
 class MainActivity : AppCompatActivity() {
     private lateinit var usersAdapter: UsersAdapter
     private lateinit var recyclerView: RecyclerView
-    private val usersService: UsersService
-        get() = (applicationContext as App).usersService
-    //val usersService=UsersService(myContext())
+    private val usersService: UsersService get() = (applicationContext as App).usersService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,29 +58,13 @@ class MainActivity : AppCompatActivity() {
                deleteUserDialog(it)
            }
 
-           usersService.addListener(usersListener)
+        usersService.addListener(usersListener)
 
     }
 
     private val usersListener: UsersListener = {
-        //var users:MutableList<Users> = readJson()
         usersAdapter.usersList = it
     }
-
-  /*  fun readJson(): MutableList<Users> {
-        var usersList = mutableListOf<Users>()
-        var json: String
-        val inputStream: InputStream = assets.open("users.json")
-        try {
-            json = inputStream.bufferedReader().use{it.readText()}
-            usersList= Gson().fromJson(json, object : TypeToken<MutableList<Users>>() {}.type)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } finally {
-            inputStream.close()
-        }
-        return usersList
-    } */
 
     override fun onCreateOptionsMenu(menu: Menu?):Boolean{
         menuInflater.inflate(R.menu.item_menu, menu)
@@ -103,8 +85,8 @@ class MainActivity : AppCompatActivity() {
         ad.setIcon(R.drawable.user_delete)
         ad.setPositiveButton("Yes"){dialogInterface, which ->
             //Toast.makeText(applicationContext,"clicked yes",Toast.LENGTH_LONG).show()
-            //usersService.deleteUser(user)
-            Toast.makeText(applicationContext, usersService.deleteUser(user),Toast.LENGTH_LONG).show()
+            usersService.deleteUser(user)
+            Toast.makeText(applicationContext, "Пользователь "+ user.name +" удалён",Toast.LENGTH_LONG).show()
         }
         ad.setNegativeButton("Cancel"){dialogInterface, which ->
             Toast.makeText(applicationContext,"clicked cancel",Toast.LENGTH_LONG).show()
@@ -123,7 +105,8 @@ class MainActivity : AppCompatActivity() {
         with(ad) {
             setTitle("Укажите данные пользователя!")
             setPositiveButton("OK") { dialog, which ->
-                Toast.makeText(applicationContext, editText1.text.toString()+" "+editText2.text.toString(), Toast.LENGTH_LONG).show()
+                usersService.addUser(editText1.text.toString(),editText2.text.toString())
+                Toast.makeText(applicationContext, "Пользователь "+editText1.text.toString()+" успешно добавлен", Toast.LENGTH_LONG).show()
             }
             setNegativeButton("Cancel") { dialog, which ->
                 Toast.makeText(applicationContext, "clicked cancel", Toast.LENGTH_LONG).show()
@@ -131,10 +114,6 @@ class MainActivity : AppCompatActivity() {
             setView(dialogLayout)
             show()
         }
-    }
-
-    fun myContext(): Context {
-        return this@MainActivity
     }
  }
 

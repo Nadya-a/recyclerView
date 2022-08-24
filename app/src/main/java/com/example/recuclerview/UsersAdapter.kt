@@ -18,8 +18,6 @@ import com.example.recuclerview.model.Users
 } */
 
 class UsersAdapter (
-    //private val usersList:MutableList<Users>
-    //private val actionListener: UserActionListener
     ) : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>()
 {
 
@@ -69,19 +67,6 @@ class UsersAdapter (
     }
 
     override fun getItemCount(): Int = usersList.size
-
-   /* override fun onClick(v: View?) {
-         val user = v?.tag as Users
-        when (v.id) {
-            R.id.deleteImageViewButton -> {
-                actionListener.onUserDelete(user)
-            }
-            else -> {
-                actionListener.onUserDetails(user)
-            }
-        }
-        //actionListener.onUserDetails(user)
-    } */
 
     private fun showPopupMenu(view: View, user : Users) {
         val popupMenu = PopupMenu(view.context, view)
