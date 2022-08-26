@@ -9,6 +9,4 @@ class App : Application() {
         super.onCreate()
         usersService = UsersService(applicationContext)
     }
-
-
 }
