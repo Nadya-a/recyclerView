@@ -9,20 +9,14 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recuclerview.model.Users
-
-/* interface UserActionListener {
-    //fun onUserMove(user: Users, moveBy: Int)
-    fun onUserDelete(user: Users)
-    //fun onUserAdd(user: Users)
-    fun onUserDetails(user: Users)
-} */
+import com.example.recuclerview.model.UsersListener
 
 class UsersAdapter (
     ) : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>()
 {
 
     var onItemClick: ((Users) -> Unit)? = null
-    var onItemLongClick: ((Users) -> Unit)? = null
+    //var onItemLongClick: ((Users) -> Unit)? = null
     var deleteClick: ((Users) -> Unit)? = null
 
     var usersList = mutableListOf<Users>()
@@ -47,20 +41,12 @@ class UsersAdapter (
         val user = usersList[position]
         holder.largeTextView.text = user.name
         holder.smallTextView.text = user.department
-        //if(holder.itemView.isSelected)
-          //  holder.moreImage.visibility=View.GONE
 
        holder.moreImage.setOnClickListener { showPopupMenu(holder.moreImage, user)}
-           //deleteClick?.invoke(user)
 
         holder.itemView.setOnClickListener { onItemClick?.invoke(user) }
 
         holder.itemView.setOnLongClickListener {
-            //onItemLongClick?.invoke(user)
-           /* if(holder.moreImage.isVisible)
-                holder.moreImage.visibility=View.GONE
-            else holder.moreImage.visibility=View.VISIBLE
-            true */
             deleteClick?.invoke(user)
             true
         }
@@ -91,6 +77,22 @@ class UsersAdapter (
     companion object {
         private const val ID_MORE = 1
         private const val ID_REMOVE = 2
+    }
+
+    fun sortBeginning (){
+        usersList.sortBy { it.name.lowercase() }
+        notifyDataSetChanged()
+    }
+
+    fun sortLast(){
+        usersList.sortBy{ it.name.length}
+        //usersList.sortWith(compareBy{it.name.length})
+        notifyDataSetChanged()
+    }
+
+    fun cancel(){
+        usersList.sortBy { it.id }
+        notifyDataSetChanged()
     }
 
 }
