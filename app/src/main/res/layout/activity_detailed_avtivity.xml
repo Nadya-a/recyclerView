@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailed_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,10 +13,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/nameTextView"
         style="@style/detailed_aclivity_info"
         android:text="Name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +30,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
-    <TextView
+    <EditText
         android:id="@+id/departmentTextView"
         style="@style/detailed_aclivity_info"
         android:text="Department"
+        android:inputType="textCapSentences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +47,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/departmentTextView" />
 
-    <TextView
+    <EditText
         android:id="@+id/emailTextView"
         style="@style/detailed_aclivity_info"
         android:text="Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,13 +64,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
-    <TextView
+    <EditText
         android:id="@+id/moreTextView"
         style="@style/detailed_aclivity_info"
         android:text="more..."
+        android:inputType="textCapSentences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moreTextView"
+        app:srcCompat="@drawable/user_delete" />
+
+    <ImageView
+        android:id="@+id/imageSave"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageDelete"
+        app:layout_constraintTop_toBottomOf="@+id/moreTextView"
+        app:srcCompat="@drawable/ic_done" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
