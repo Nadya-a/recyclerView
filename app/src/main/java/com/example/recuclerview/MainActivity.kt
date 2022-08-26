@@ -1,6 +1,5 @@
 package com.example.recuclerview
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,15 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recuclerview.model.Users
 import com.example.recuclerview.model.UsersListener
 import com.example.recuclerview.model.UsersService
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.IOException
-import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
     private lateinit var usersAdapter: UsersAdapter
     private lateinit var recyclerView: RecyclerView
     private val usersService: UsersService get() = (applicationContext as App).usersService
+
+    var num = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,19 +30,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         usersAdapter= UsersAdapter()
 
-       /* (object : UserActionListener {
-            override fun onUserDelete(user: Users) {
-                //usersService.deleteUser(user)
-                deleteUserDialog()
-            }
-
-            override fun onUserDetails(user: Users) {
-                //val intent = Intent(this@MainActivity, DetailedAvtivity::class.java)
-                //intent.putExtra("user", it)
-                //startActivity(intent)
-                deleteUserDialog()
-            }
-        }) */
         recyclerView.adapter=usersAdapter
 
           usersAdapter.onItemClick = {
@@ -54,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                startActivity(intent)
            }
            usersAdapter.deleteClick={
-               //Toast.makeText(this, "Hello World",   Toast.LENGTH_LONG).show()
                deleteUserDialog(it)
            }
 
@@ -72,9 +55,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId==R.id.add_item)
+       /* if(item.itemId==R.id.add_item)
             showCreateUserDialog()
-        return super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item) */
+        return when (item.itemId) {
+            R.id.add_item -> {
+                showCreateUserDialog()
+                true
+            }
+            R.id.sort_item -> {
+                num = sortItems(num)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    fun sortItems(n:Int):Int{
+        var num=n
+        when(num){
+            1-> {
+                usersAdapter.sortBeginning()
+            num++
+            }
+            2->{
+                usersAdapter.sortLast()
+                num++
+            }
+            3->{
+                usersAdapter.cancel()
+                num -= 2
+            }
+        }
+        return num
     }
 
     fun deleteUserDialog(user: Users)
@@ -84,12 +97,11 @@ class MainActivity : AppCompatActivity() {
         ad.setMessage("Вы уверены, что хотите удалить пользователя?")
         ad.setIcon(R.drawable.user_delete)
         ad.setPositiveButton("Yes"){dialogInterface, which ->
-            //Toast.makeText(applicationContext,"clicked yes",Toast.LENGTH_LONG).show()
             usersService.deleteUser(user)
-            Toast.makeText(applicationContext, "Пользователь "+ user.name +" удалён",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Пользователь удалён",Toast.LENGTH_LONG).show()
         }
         ad.setNegativeButton("Cancel"){dialogInterface, which ->
-            Toast.makeText(applicationContext,"clicked cancel",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"Отмена",Toast.LENGTH_LONG).show()
         }
         val alertDialog: AlertDialog = ad.create()
         alertDialog.setCancelable(false)
